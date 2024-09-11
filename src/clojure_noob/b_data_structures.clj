@@ -1,4 +1,4 @@
-(ns clojure-noob.data-strcutures)
+(ns clojure-noob.b-data-structures)
 
 ;; Numbers
 93

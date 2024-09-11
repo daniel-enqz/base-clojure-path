@@ -1,17 +1,16 @@
-(ns clojure-noob.exercise-1)
+(ns clojure-noob.d-exercise)
 
 
 ;; First things first
 ;; What is let?
-(def y 1)                                                   ;; Bind 1 to x in a global context
-(let [z 4] z)                                               ;; Bind the value of 1 to x in this scope
+(def y 1)                                                   ;; Bind 1 to y in a global context
+(let [z 4] z)                                               ;; Bind the value of 1 to z in this scope
 (def x 0)
 (let [x (inc x)] x)                                         ;; Here we are incrementing x by one,
 (println x)                                                 ;; So in the scope of let it will be 1 but in println it will still be 0
 
 ;; The vector [pongo dalmatians] is the last expression in let, so it’s the value of the let form.
-(def dalmatian-list
-  ["Pongo" "Perdita" "Puppy 1" "Puppy 2"])
+(def dalmatian-list ["Pongo" "Perdita" "Puppy 1" "Puppy 2"])
 (let [[pongo & dalmatians] dalmatian-list]
   [pongo dalmatians])
 
@@ -29,7 +28,7 @@
 ;; Understanding Regexp
 (re-find #"^left-" "left-eye")
 
-
+;; Exercise 1
 (def asym-hobbit-body-parts [{:name "head" :size 3}
                              {:name "left-eye" :size 1}
                              {:name "left-ear" :size 1}
@@ -54,7 +53,7 @@
   [part]
   {:name (clojure.string/replace (:name part) #"^left-" "right-")
    :size (:size part)})
-(matching-part {:name "left-eye" :size 3})
+;; (matching-part {:name "left-eye" :size 3})
 
 (defn symmetrize-body-parts
   "Expects a seq of maps that have a :name and :size"
@@ -76,6 +75,7 @@
                   (set [part (matching-part part)])))
           []
           asym-body-parts))
+;; (better-symmetrize-body-parts asym-hobbit-body-parts)
 
 (defn hit
   [asym-body-parts]

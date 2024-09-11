@@ -1,11 +1,11 @@
-(ns clojure-noob.functions)
+(ns clojure-noob.c-functions)
 
 
 ;; Calling functions have the same syntax (operator, operands)
 (or + -)                                                    ;; Will return the first truthy value '+' function
 ((or + -) 1 2 3)                                            ;; The operator returned is +
-((and (= 1 1) +) 1 2 3)                                     ;; Remember the return value of 'and' is the first falsey value or the last truthy value
-((first [+ 0]) 1 2)
+((and (= 1 1) +) 1 2 3)                                     ;; Remember the return value of 'and'
+((first [+ 0]) 1 2)                                         ;; is the first false value or the last truthy value
 
 ;; Numbers and strings aren't functions
 ;;(1 2 3 4)
@@ -17,8 +17,9 @@
 
 (map inc [1 2 3 4 5])
 ;; POWER of First Class-Functions
-;; Instead of operating only on data, we can operate  on behaviours (functions)
-;; In this previous map example, "map" allows tou to operate over the incremental behaviour, but that behaviour could be actually anything.
+;; Instead of operating only on data, we can operate on behaviors (functions)
+;; In this previous map example, "map" allows tou to operate over the incremental behavior,
+;; but that behavior could be actually anything.
 ;; map abstracts the process of transforming a collection, regardless of the specific transformation or collection
 
 ;; Clojure solves all functions recursively, before applying them to a function
@@ -44,12 +45,12 @@
 (nba-player-hello "Giannis")
 (nba-player-hello "Steph Curry" "Golden State Warriors" "age: 31" 30 2)
 
-;; What's happening in previous function is that we are doing arity-overloading,
+;; What's happening in the previous function is that we are doing arity-overloading,
 ;; meaning it will run a different block depending on the arguments passed
 ;; If we only pass one argument, like Giannis it will run first block and call the function again but with correct arguments.
-;; Then, the function will run the second block, that has a variable arity behaviour.
+;; Then, the function will run the second block, that has a variable arity behavior.
 ;; Receives 2 params and one last one using rest parameter (&),
-;; it always needs to be on the last position and it will be treated as list.
+;; it always needs to be in the last position, and it will be treated as a list.
 
 
 ;; DESTRUCTING

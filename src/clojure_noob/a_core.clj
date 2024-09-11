@@ -1,4 +1,4 @@
-(ns clojure-noob.core
+(ns clojure-noob.a-core
   (:gen-class))
 
 (defn -main
@@ -24,7 +24,7 @@
   "abra cadabra!")
 
 ;; about nil
-(nil? 1)                                                    ;; false                                                  ;; fale
+(nil? 1)                                                    ;; false
 (nil? nil)                                                  ;; true
 (if nil                                                     ;; nil is considered falsey
   "Hello"
@@ -43,8 +43,7 @@
 
 ;; and
 (and true :hello "pana")                                    ;; will return "pana" as its last true value
-(and true (= nil 1) nil "pana" nil)                         ;; will return the first false value (= nil 1)
-
+(and true (= nil 1) nil "pana" nil)                         ;; will return false
 
 ;; binding values
 (def failed-panas
