@@ -45,7 +45,7 @@
 
 ;; In the next function, we are creating a partial, (partial) receives a function, in this case "lousy-logger".
 ;; But with the prefilled value ':warn'
-;; So lousy-loggerreturns a new function that has :warn pre-filled as the log-level argument.
+;; So lousy-logger returns a new function that has :warn pre-filled as the log-level argument.
 ;; This new function is bound to the name warn.
 
 (defn lousy-logger
