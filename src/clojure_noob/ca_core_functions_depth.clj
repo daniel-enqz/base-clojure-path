@@ -60,13 +60,13 @@
    {:month 4 :day 1 :human 3.7 :critter 3.9}
    {:month 4 :day 2 :human 3.7 :critter 3.6}])
 
-;; TAKE, DROP
-(take 3 [1 2 3 4 5 6 7 8 9 10])
-(drop 3 [1 2 3 4 5 6 7 8 9 10])
-
 ;; FILTER, SOME
 (filter #(< (:human %) 5) food-journal)
 (some #(> (:critter %) 3) food-journal)
+
+;; TAKE, DROP
+(take 3 [1 2 3 4 5 6 7 8 9 10])
+(drop 3 [1 2 3 4 5 6 7 8 9 10])
 
 ;; SORT, SORT BY
 (sort [3 1 2])
@@ -78,7 +78,7 @@
 ;; LAZY SEQS
 (def lazy-seq (map inc (range 10000)))                      ;; It will not increment any of those until consulted
 
-;; Vampire Example
+;; VAMPIRE EXAMPLE
 (def vampire-database
   {0 {:makes-blood-puns? false, :has-pulse? true  :name "McFishwich"}
    1 {:makes-blood-puns? false, :has-pulse? true  :name "McMackson"}
@@ -96,26 +96,26 @@
        (not (:has-pulse? record))
        record))
 
-;; This next line will take barley a second because it's just a recipe of what to call until applied
-(time (def mapped-details (map vampire-related-details (range 0 1000000))))
+;; This next line will take barley seconds because it's just a recipe of what to call until applied
+;(time (def mapped-details (map vampire-related-details (range 0 1000000))))
 
 ;; The time will be 32 seconds because Clojure chunks some other elements as well
 ;; It applies the recipe multiple times. But not 1M times.
-(time (first mapped-details))                               ;; If we access again, it will take no time.
-
+;(time (first mapped-details))                               ;; If we access again, it will take no time.
 
 (defn identify-vampire
   [social-security-numbers]
   (first (filter vampire?
                  (map vampire-related-details social-security-numbers))))
-(time (identify-vampire (range 0 1000000)))
+;(time (identify-vampire (range 0 1000000)))
 
-(time (vampire-related-details 0))
+;(time (vampire-related-details 0)) ;
 
-;; Infinite Sequences
+
+;; INFINITE SEQUENCES
 ;; It will always ask for only the first 10 even-numbers from the infinite sequence.
 (defn even-numbers
   ([] (even-numbers 0))
   ([n] (cons n (lazy-seq (even-numbers (+ n 2))))))
 
-(take 10 (even-numbers))
+;(take 10 (even-numbers))
