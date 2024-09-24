@@ -133,3 +133,17 @@
 ;4. Therefore, we call inc-marker, sending 3 as argument. This "3" integer will be used by the anonymous function.
 ;5. Now we bind this to inc3, meaning inc3 is actually an anonymous function like: #(+ % 3) or in normal form: (fn [x] (+ x 3))
 ;6. Finally, as we know that inc3 is the anonymous function previously mentioned, we can call it and send an argument.
+
+
+;To deal with Side Effects, you can bookend them. This means that they run before or after a block of Pure Functions. You can refactor the code to bookend side effects and, at the same time, make "hello-text" a pure function.
+(defn fetch-name
+  "Reads and returns the contents of a hard coded text file"
+  []
+  (slurp "~/name.txt"))
+
+(defn hello-text
+  "Says Hello, Name"
+  [name]
+  (println "Hello" name))
+
+(hello-text (fetch-name))
