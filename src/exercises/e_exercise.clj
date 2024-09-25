@@ -1,4 +1,4 @@
-(ns clojure-noob.e-excercises)
+(ns clojure-noob.e-exercise)
 
 ;; 1. Use the str, vector, list, hash-map, and hash-set functions.
 (def pana "Daniel")

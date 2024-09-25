@@ -1,4 +1,4 @@
-(ns clojure-noob.da-exercise
+(ns clojure-noob.b_parsing_csv
   (:require [clojure.java.io :as io]
             [clojure.string :as str]))
 

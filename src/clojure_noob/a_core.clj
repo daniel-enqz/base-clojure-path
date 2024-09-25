@@ -38,6 +38,7 @@
 (= 1 2)
 
 ;; or
+;; Note: Clojure treats the comma character as whitespace,
 (or false :hey nil :bye)                                    ;; will return :hey as its the first true value
 (or false (= nil 1) nil :hello nil)                         ;; will return :hello because its first true value
 

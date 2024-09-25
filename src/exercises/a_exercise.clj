@@ -1,4 +1,4 @@
-(ns clojure-noob.d-exercise)
+(ns clojure-noob.a_exercise)
 
 
 ;; First things first

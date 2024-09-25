@@ -1,4 +1,4 @@
-(ns clojure-noob.de-exercise)
+(ns clojure-noob.c_composition)
 
 (def character
   {:name "Smooches McCutes"
