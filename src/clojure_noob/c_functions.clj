@@ -68,12 +68,33 @@
 ; => Your second choice is: Handsome Jack
 ; => We're ignoring the rest of your choices. Here they are in case \
 
+;; Destructuring and combining arity rest params
+(defn hello-world
+  [& [first-name & more-names :as names]]
+  (println "Received" (count names) "names for" first-name)
+  (clojure.string/join " " (conj more-names (clojure.string/upper-case first-name) "Hello")))
+
+(hello-world "Clair" "de" "Lune")
+; This works and prints: Received 3 names for Clair
+; Returns: "Hello CLAIR de Lune"
+
+;; Associative Destructuring
 (defn announce-treasure-location
   [{lat :lat lng :lng}]
   (println (str "Treasure lat: " lat))
   (println (str "Treasure lng: " lng)))
 
 (announce-treasure-location {:lat 28.22 :lng 81.33})
+
+(defn hello-world
+  "Given a map representing an employee, return a Hello World string to greet that employee."
+  [{:keys [first-name middle-name last-name] :as person}]   ;; Keys need to be the same as the once sent in the map
+  (println "Person map with" (count person) "keys")
+  (let [strings (remove nil? ["Hello" first-name middle-name last-name])]
+    (clojure.string/join " " strings)))
+
+(hello-world {:first-name "Daniel" :middle-name "Pablo" :last-name "Rabbit" :age 31})
+
 
 ;; Function Body
 (defn number-comment-inclusiveness
@@ -147,3 +168,27 @@
   (println "Hello" name))
 
 (hello-text (fetch-name))
+
+
+;Keywords such as :foo evaluate to themselves.
+:foo
+
+;This expression is a function invocation. Evaluating it yields the String value "Hello Marie".
+(str "Hello " "Marie")
+
+;This expression is also a function invocation, but evaluating it yields a nil value.
+; However, the evaluation causes a side effect, namely the string "Hello Marie" printed to Clojure core *out*, as we mentioned before.
+(println "Hello" "Marie")
+
+
+;When functions are invoked, each expression of the function body is evaluated,
+; and the value of the last expression becomes the return value of that function.
+; Function bodies implicitly are contained within a do form. The next functions are the same
+(fn [name]
+  (println "Name param is" name)
+  (str "Hello " name))
+
+(fn [name]
+  (do
+    (println "Name param is" name)
+    (str "Hello " name)))
