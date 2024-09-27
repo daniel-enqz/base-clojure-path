@@ -1,4 +1,4 @@
-(ns exercises.threading-operations)
+(ns exercises.g_threading-operations)
 
 ;; Threading macros, also known as arrow macros,
 ;; convert nested function calls into a linear flow of function calls, improving readability.
