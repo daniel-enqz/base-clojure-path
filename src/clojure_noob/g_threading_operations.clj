@@ -3,6 +3,11 @@
 ;; Threading macros, also known as arrow macros,
 ;; convert nested function calls into a linear flow of function calls, improving readability.
 
+;; When to add threading macros:
+;  Am I improving the readability of this code?
+;  Will the maintainability of the code increase from the use of threading macros?
+
+
 ;; THREAD-FIRST MACRO
 ;; First way of implementing a function:
 (defn hire
