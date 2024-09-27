@@ -40,11 +40,12 @@
 (map :real identities)
 
 
-;; REDUCE
+;; REDUCE seq-fn fn [init-value] collection
 (reduce (fn [new-map [key val]]
           (assoc new-map key (inc val)))
         {}
         {:max 30 :min 10})
+
 
 ;; MAP
 (map inc [1 2 3 4])
@@ -63,6 +64,7 @@
 ;; FILTER, SOME
 (filter #(< (:human %) 5) food-journal)
 (some #(> (:critter %) 3) food-journal)
+; others are every?, not-any?, or some
 
 ;; TAKE, DROP
 (take 3 [1 2 3 4 5 6 7 8 9 10])
@@ -76,8 +78,9 @@
 (concat [1 2] [3 4])
 
 ;; LAZY SEQS
-(def lazy-seq (map inc (range 10000)))                      ;; It will not increment any of those until consulted
+; Each element is processed only when needed, rather than computing the entire sequence upfront.
 
+(def lazy-seq (map inc (range 10000)))                      ;; It will not increment any of those until consulted
 ;; VAMPIRE EXAMPLE
 (def vampire-database
   {0 {:makes-blood-puns? false, :has-pulse? true  :name "McFishwich"}

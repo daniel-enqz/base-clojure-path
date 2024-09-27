@@ -16,7 +16,7 @@
 
 (hash-map :a 1 :b 2)
 {"string-key" +}
-(get {:a 0 :b 1} :b)
+(get {:a 0 :b 1} :b)                                        ;; Each element in a map is called MapEntry
 
 (def map-name { :first-name "Charlie" :last-name "McFishwich" :address {:country "Mexico" :postal-code 03700}})
 (get map-name :first-name)
@@ -28,6 +28,8 @@
 (map-name :first-name)
 (:first-name map-name)
 (map-name :age "not-found-key-error")
+
+(zipmap [:mina :red :taco] ["cat" "squirrel" "chihuahua"])
 
 ;; Arrays/Vectors
 (def my-array [3 2 1])
@@ -48,7 +50,10 @@
 (set [ 3 3 4 4 ])
 (contains? #{:a :b} :a)
 (get #{:a nil} nil)
-
-
+(require ['clojure.set :refer :all])
+(def sample-set #{:a :b :c 1 2 3})
+(clojure.set/subset? #{:a :b} sample-set)                       ;; Check if all elements of the first set are in the second set
+(clojure.set/superset? #{:a :b} sample-set)                     ;; Check if all elements of the second set are in the first set
+;; Remember you can also use difference, intersection, and union
 
 
