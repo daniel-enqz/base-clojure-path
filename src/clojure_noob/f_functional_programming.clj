@@ -45,6 +45,19 @@
 (db/lookup [:customer/id 123] (ddb/db datomic)) ; <- The database data can change, changing the result of the function
 (protocols.http-client/req! http {:url :customer-by-id ,,,}) ; <- the result of this function depends on an external resource
 
+(defn get-customer
+  [id
+   datomic]
+  (db/lookup [:customer/id id] (ddb/db datomic))) ; <- It is impure because it is referential opaque, depends on data rataher than only its params
+
+(defn sum
+  [a b]
+  (let [sum (+ a b)]
+    (vis/info :log ::sum :value sum) ; <- It is impure because it has a side effect
+    sum))
+
+
+
 ;; Immutable data structures
 ;; Clojure has a lot of immutable data structures,
 ;; For instance, there's no assignment, we cannot change the value of a variable, unless we create a scope or a new variable
