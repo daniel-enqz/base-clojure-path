@@ -33,6 +33,18 @@
 
 ;; Note: Altough not consider an exception, avoid using Exception to inform errors
 
+;; More examples:
+; Referential Transparent
+(defn active?
+  [timestamp
+   end-date]
+  (t/lt? timestamp end-date))
+
+; The following function are referential opaque
+(time/now) ; <- This function uses data that is not passed as argument (system time)
+(db/lookup [:customer/id 123] (ddb/db datomic)) ; <- The database data can change, changing the result of the function
+(protocols.http-client/req! http {:url :customer-by-id ,,,}) ; <- the result of this function depends on an external resource
+
 ;; Immutable data structures
 ;; Clojure has a lot of immutable data structures,
 ;; For instance, there's no assignment, we cannot change the value of a variable, unless we create a scope or a new variable
