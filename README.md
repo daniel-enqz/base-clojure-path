@@ -8,6 +8,9 @@
 ## Domain Driven Design
 "What problem am I trying to solve?". That problem exists in a broader context. That context may be employee relations, cold chain shipping, medical records, banking--whatever the context, that cognitive space is our problem domain. That domain is comprised of the entities embodying the concepts and data, as well as the operations that create, transform, and update those entities into solutions to our problems. We can think of those operations as domain operations.
 
+## Diplomat Architecture: Some inmpotant Rules
+- avoid using Exception to inform errors
+
                                               
 ## Product Rules
 - A customer can be taken into account into multiple segments.
