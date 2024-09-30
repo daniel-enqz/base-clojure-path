@@ -3,7 +3,7 @@
 
 ## Functional Programming
 > Some important insights of Clojure Fucntional Programming Principles can be found [here](https://github.com/daniel-enqz/base-clojure-path/blob/master/src/clojure_noob/f_functional_programming.clj)
-- Side Effect: A function has a side effect when it has any observable effect other than its primary effect of returning a value to the invoker of the function.
+- Side Effect: A function has a side effect when it has any observable effect other than its primary effect of returning a value to the invoker of the function. Updating an atom, Producing a log, Create / Update a value in the database, Performing I/O, or calling other function that has side effects are examples of actions that cause side effects on a function.
        
 ## Domain Driven Design
 "What problem am I trying to solve?". That problem exists in a broader context. That context may be employee relations, cold chain shipping, medical records, banking--whatever the context, that cognitive space is our problem domain. That domain is comprised of the entities embodying the concepts and data, as well as the operations that create, transform, and update those entities into solutions to our problems. We can think of those operations as domain operations.
