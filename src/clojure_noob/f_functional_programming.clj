@@ -12,6 +12,8 @@
 
 ;; Referential Transparency
 ;; Relay on their own arguments and immutable data
+;; To be referential transparent, a function should not access any data that is not passed as arguments and should not perform I/O directly. 
+;; When performing I/O the consulted state can change during the execution, changing the result of the function even if the same parameters are used.
 (defn analysis
   [text]
   (str "Character count: " (count text)))
