@@ -1,5 +1,6 @@
 # Clojure, Datomic and Software
 > Based on [Brave Clojure Book](https://www.braveclojure.com/do-things/) and some other exercises.
+
 > Datomic Content can be found [here](https://github.com/daniel-enqz/base-clojure-path/tree/master/src/datomic)
 
 ## Functional Programming
