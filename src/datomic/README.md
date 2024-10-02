@@ -41,6 +41,9 @@ We also need to understand aspects of Universal Schema:
 | Helana | Favorite food  | Salad | Helana likes Salad| add       |
 | Alex   | Favorite drink | Water | Alex drinks Water | add       |
 
+### About Attributes
+> We need to understand that attributes are datoms themselves, becasue we need some attrs to define them: `(identity, type, and cardinality)`.
+<img width="1252" alt="Screenshot 2024-10-02 at 11 10 35 a m" src="https://github.com/user-attachments/assets/4fe1252f-fb0c-45db-b212-f4cbe1a31531">
 
 ### Roles:
 <img width="1152" alt="Screenshot 2024-10-02 at 10 20 47 a m" src="https://github.com/user-attachments/assets/95846aa3-ce7a-4500-ada7-8d42d13e1a53">
