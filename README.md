@@ -1,8 +1,9 @@
 # Clojure, Datomic and Software
-> Based on [Brave Clojure Book](https://www.braveclojure.com/do-things/)
+> Based on [Brave Clojure Book](https://www.braveclojure.com/do-things/) and some other exercises.
+> Datomic Content can be found [here](https://github.com/daniel-enqz/base-clojure-path/tree/master/src/datomic)
 
 ## Functional Programming
-> Some important insights of Clojure Fucntional Programming Principles can be found [here](https://github.com/daniel-enqz/base-clojure-path/blob/master/src/clojure_noob/f_functional_programming.clj)
+> Some important insights of Clojure Functional Programming Principles can be found [here](https://github.com/daniel-enqz/base-clojure-path/blob/master/src/clojure_noob/f_functional_programming.clj)
 - Side Effect: A function has a side effect when it has any observable effect other than its primary effect of returning a value to the invoker of the function. Updating an atom, Producing a log, Create / Update a value in the database, Performing I/O, or calling other function that has side effects are examples of actions that cause side effects on a function.
        
 ## Domain Driven Design
