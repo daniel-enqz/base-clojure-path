@@ -28,6 +28,20 @@ Data for Helena and Noah could look like this:
 
 > Note how each attribute contains the three properties defined before.
 
+We also need to understand aspects of Universal Schema:
+> Datomic has a universal schema. Think of it as one big table with five columns
+> (Entity, Attribute, Value, Transaction, and Operation - also known as EAVT) that
+> stores all the facts in our database, expressed as Datoms.
+
+| Entity | Attribute      | Value | Transaction       | Operation |
+|--------|----------------|-------|-------------------|-----------|
+| Helena | Favorite food  | Pizza | Helana likes Pizza| add       |
+| Noah   | Favorite food  | Sushi | Add Sophia        | add       |
+| Helana | Favorite food  | Pizza | Helena likes Salad| retract   |
+| Helana | Favorite food  | Salad | Helana likes Salad| add       |
+| Alex   | Favorite drink | Water | Alex drinks Water | add       |
+
+
 ### Roles:
 <img width="1152" alt="Screenshot 2024-10-02 at 10 20 47 a m" src="https://github.com/user-attachments/assets/95846aa3-ce7a-4500-ada7-8d42d13e1a53">
 
