@@ -12,8 +12,23 @@ Each attribute in Datomic requires at least three properties:
 - :db/valueType - The type of data the attribute can hold (e.g., :db.type/string)
 - :db/cardinality - Whether the attribute can have one or many values (:db.cardinality/one or :db.cardinality/many)
 
+Data for Helena and Noah could look like this:
 
+| Entity | Attribute          | Value   |
+|--------|--------------------|---------|
+| 1000   | :person/first-name | Helena  |
+| 1000   | :person/last-name  | Almeida |
+| 1000   | :likes/food        | pizza   |
+| 1000   | :likes/drink       | beer    |
+| …      |                    |         |
+| 1006   | :person/first-name | Noah    |
+| 1006   | :person/last-name  | Silva   |
+| 1006   | :likes/food        | curry   |
+| 1006   | :likes/drink       | beer    |
 
+> Note how each attribute contains the three properties defined before.
+
+### Roles:
 <img width="1152" alt="Screenshot 2024-10-02 at 10 20 47 a m" src="https://github.com/user-attachments/assets/95846aa3-ce7a-4500-ada7-8d42d13e1a53">
 
 
