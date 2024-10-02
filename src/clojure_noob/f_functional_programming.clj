@@ -12,6 +12,9 @@
 
 ;; Referential Transparency
 ;; Relay on their own arguments and immutable data
+;; To be referential transparent, a function should not access any data that is not passed as arguments and should not perform I/O directly. 
+;; When performing I/O the consulted state can change during the execution, changing the result of the function even if the same parameters are used.
+
 (defn analysis
   [text]
   (str "Character count: " (count text)))
@@ -27,6 +30,32 @@
 ;; When you call a function that doesn’t have side effects,
 ;; you only have to consider the relationship between the input and the output.
 ;; You don’t have to worry about other changes that could be rippling through your system.
+
+;; Note: Altough not consider an exception, avoid using Exception to inform errors
+
+;; More examples:
+; Referential Transparent
+(defn active?
+  [timestamp
+   end-date]
+  (t/lt? timestamp end-date))
+
+; The following function are referential opaque
+(time/now) ; <- This function uses data that is not passed as argument (system time)
+(db/lookup [:customer/id 123] (ddb/db datomic)) ; <- The database data can change, changing the result of the function
+(protocols.http-client/req! http {:url :customer-by-id ,,,}) ; <- the result of this function depends on an external resource
+
+(defn get-customer
+  [id
+   datomic]
+  (db/lookup [:customer/id id] (ddb/db datomic))) ; <- It is impure because it is referential opaque, depends on data rataher than only its params
+
+(defn sum
+  [a b]
+  (let [sum (+ a b)]
+    (vis/info :log ::sum :value sum) ; <- It is impure because it has a side effect
+    sum))
+
 
 
 ;; Immutable data structures
