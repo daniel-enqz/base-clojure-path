@@ -43,7 +43,41 @@ We also need to understand aspects of Universal Schema:
 
 ### About Attributes
 > We need to understand that attributes are datoms themselves, becasue we need some attrs to define them: `(identity, type, and cardinality)`.
-<img width="1252" alt="Screenshot 2024-10-02 at 11 10 35 a m" src="https://github.com/user-attachments/assets/4fe1252f-fb0c-45db-b212-f4cbe1a31531">
+
+Because attributes are also Datoms, they are stored using the same EAVT model
+we use to store other facts. After creating our three attributes
+("First name," "Favorite food," and "Favorite drink") our database would also
+contain the following facts:
+
+| Entity | Attribute       | Value               | Transaction        | Operation |
+|--------|-----------------|---------------------|--------------------|-----------|
+| 5      | :db/ident       | :person/first-name  | Install attributes | add       |
+| 5      | :db/valueType   | :db.type/string     | Install attributes | add       |
+| 5      | :db/cardinality | :db.cardinality/one | Install attributes | add       |
+| …      |                 |                     |                    |           |
+| 6      | :db/ident       | :favorite/food      | Install attributes | add       |
+| 6      | :db/valueType   | :db.type/string     | Install attributes | add       |
+| 6      | :db/cardinality | :db.cardinality/one | Install attributes | add       |
+| …      |                 |                     |                    |           |
+| 7      | :db/ident       | :favorite/drink     | Install attributes | add       |
+| 7      | :db/valueType   | :db.type/string     | Install attributes | add       |
+| 7      | :db/cardinality | :db.cardinality/one | Install attributes | add       |
+
+Now that our attributes are created, our database looks like this:
+
+| Entity | Attribute | Value              | Transaction        | Operation |
+|--------|-----------|--------------------|--------------------|-----------|
+| 5      | :db/ident | :person/first-name | Install attributes | add       |
+| 6      | :db/ident | :favorite/food     | Install attributes | add       |
+| 7      | :db/ident | :favorite/drink    | Install attributes | add       |
+| …      |           |                    |                    |           |
+| 10     | 5         | Alex               | Add Alex           | add       |
+| 15     | 5         | Sophia             | Add Sophia         | add       |
+| 15     | 6         | Sushi              | Add Sophia         | add       |
+| 10     | 6         | Pizza              | Alex likes Pizza   | add       |
+| 10     | 6         | Pizza              | Alex likes Salad   | retract   |
+| 10     | 6         | Salad              | Alex likes Salad   | add       |
+| 10     | 7         | Water              | Alex drinks Water  | add       |
 
 ### Roles:
 <img width="1152" alt="Screenshot 2024-10-02 at 10 20 47 a m" src="https://github.com/user-attachments/assets/95846aa3-ce7a-4500-ada7-8d42d13e1a53">
