@@ -79,6 +79,9 @@ Now that our attributes are created, our database looks like this:
 | 10     | 6         | Salad              | Alex likes Salad   | add       |
 | 10     | 7         | Water              | Alex drinks Water  | add       |
 
+
+> Finally, a Transaction is also defined using Datoms. They are Entities with various Attributes.
+
 ### Roles:
 <img width="1152" alt="Screenshot 2024-10-02 at 10 20 47 a m" src="https://github.com/user-attachments/assets/95846aa3-ce7a-4500-ada7-8d42d13e1a53">
 
