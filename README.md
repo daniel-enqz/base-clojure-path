@@ -1,4 +1,4 @@
-# Clojure and Software
+# Clojure, Datomic and Software
 > Based on [Brave Clojure Book](https://www.braveclojure.com/do-things/)
 
 ## Functional Programming
