@@ -10,7 +10,7 @@
 Each attribute in Datomic requires at least three properties:
 - :db/ident - A unique identifier for the attribute (e.g., :person/first-name)
 - :db/valueType - The type of data the attribute can hold (e.g., :db.type/string)
- :db/cardinality - Whether the attribute can have one or many values (:db.cardinality/one or :db.cardinality/many)
+- :db/cardinality - Whether the attribute can have one or many values (:db.cardinality/one or :db.cardinality/many)
 
 
 
